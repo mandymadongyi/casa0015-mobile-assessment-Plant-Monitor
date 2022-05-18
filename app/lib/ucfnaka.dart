@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
-class ThirdRoute extends StatefulWidget {
-  const ThirdRoute({Key? key}) : super(key: key);
+class Pageaka extends StatefulWidget {
+  const Pageaka({Key? key}) : super(key: key);
 
   @override
-  State<ThirdRoute> createState() => _ThirdRouteState();
+  State<Pageaka> createState() => _PageakaState();
 }
 
-class _ThirdRouteState extends State<ThirdRoute> {
+class _PageakaState extends State<Pageaka> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +23,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
             ),
             body: Column(
               children: [
-                fixeducfnaka(),
+                Fixeducfnaka(),
                 Padding(
                   padding: const EdgeInsets.only(left: 50.0),
                   child: PlantViewaka(),
@@ -33,8 +33,8 @@ class _ThirdRouteState extends State<ThirdRoute> {
   }
 }
 
-class fixeducfnaka extends StatelessWidget {
-  const fixeducfnaka({Key? key}) : super(key: key);
+class Fixeducfnaka extends StatelessWidget {
+  const Fixeducfnaka({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

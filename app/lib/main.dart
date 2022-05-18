@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ucfnmsm.dart';
 import 'ucfnaka.dart';
-import 'ucfnxxx.dart';
+import 'ucfncku.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
@@ -15,19 +15,19 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: "Plant Monitor",
       theme: new ThemeData(primarySwatch: Colors.blue),
-      home: new FirstRoute(),
+      home: new Homepage(),
     );
   }
 }
 
-class FirstRoute extends StatefulWidget {
-  const FirstRoute({Key? key}) : super(key: key);
+class Homepage extends StatefulWidget {
+  const Homepage({Key? key}) : super(key: key);
 
   @override
-  State<FirstRoute> createState() => _FirstRouteState();
+  State<Homepage> createState() => _HomepageState();
 }
 
-class _FirstRouteState extends State<FirstRoute> {
+class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -64,7 +64,7 @@ class Namelist extends StatelessWidget {
               _NotificationState.client.disconnect();
               print('client disconnected');
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return SecondRoute();
+                return Pagemsm();
               }));
             },
           ),
@@ -74,17 +74,17 @@ class Namelist extends StatelessWidget {
               _NotificationState.client.disconnect();
               print('client disconnected');
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return ThirdRoute();
+                return Pageaka();
               }));
             },
           ),
           ElevatedButton(
-            child: Text('ucfnxxx'),
+            child: Text('ucfncku'),
             onPressed: () {
               _NotificationState.client.disconnect();
               print('client disconnected');
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return FourthRoute();
+                return Pagecku();
               }));
             },
           )
@@ -102,12 +102,12 @@ class Notification extends StatefulWidget {
 }
 
 class _NotificationState extends State<Notification> {
-  String MSM = '0';
-  String AKA = '0';
-  String XXX = '0';
+  String MSM = '100';
+  String AKA = '100';
+  String CKU = '100';
   int msm = 101;
   int aka = 101;
-  int xxx = 101;
+  int cku = 101;
 
   static final client =
       MqttServerClient('mqtt.cetools.org', 'mandymadongyihome');
@@ -136,12 +136,12 @@ class _NotificationState extends State<Notification> {
         AKA = s;
       }
       if (i == 2) {
-        XXX = s;
+        CKU = s;
       }
 
       msm = int.parse(MSM);
       aka = int.parse(AKA);
-      xxx = int.parse(XXX);
+      cku = int.parse(CKU);
 
       print('msm=');
       print(msm);
@@ -149,8 +149,8 @@ class _NotificationState extends State<Notification> {
       print('aka=');
       print(aka);
 
-      print('xxx=');
-      print(xxx);
+      print('cku=');
+      print(cku);
     });
   }
 
@@ -177,7 +177,7 @@ class _NotificationState extends State<Notification> {
     client.subscribe(topic1, MqttQos.atMostOnce);
     const topic2 = 'student/CASA0014/plant/ucfnaka/moisture';
     client.subscribe(topic2, MqttQos.atMostOnce);
-    const topic3 = 'student/CASA0014/plant/ucfnxxx/moisture';
+    const topic3 = 'student/CASA0014/plant/ucfncku/moisture';
     client.subscribe(topic3, MqttQos.atMostOnce);
     client.updates!.listen((List<MqttReceivedMessage<MqttMessage?>>? c) {
       final receivedMessage = c![0].payload as MqttPublishMessage;
@@ -239,11 +239,11 @@ class _NotificationState extends State<Notification> {
               style: TextStyle(fontSize: 20, color: Colors.red),
             ),
           ),
-        if (xxx < 100)
+        if (cku < 100)
           Padding(
             padding: const EdgeInsets.only(left: 15.0, top: 20),
             child: Text(
-              'Please water ucfnxxx!!!',
+              'Please water ucfncku!!!',
               style: TextStyle(fontSize: 20, color: Colors.red),
             ),
           ),

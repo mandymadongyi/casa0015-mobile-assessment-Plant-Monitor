@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
-class FourthRoute extends StatefulWidget {
-  const FourthRoute({Key? key}) : super(key: key);
+class Pagecku extends StatefulWidget {
+  const Pagecku({Key? key}) : super(key: key);
 
   @override
-  State<FourthRoute> createState() => _FourthRouteState();
+  State<Pagecku> createState() => _PageckuState();
 }
 
-class _FourthRouteState extends State<FourthRoute> {
+class _PageckuState extends State<Pagecku> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,18 +23,18 @@ class _FourthRouteState extends State<FourthRoute> {
             ),
             body: Column(
               children: [
-                fixeducfnxxx(),
+                Fixeducfncku(),
                 Padding(
                   padding: const EdgeInsets.only(left: 50.0),
-                  child: PlantView(),
+                  child: PlantViewcku(),
                 )
               ],
             )));
   }
 }
 
-class fixeducfnxxx extends StatelessWidget {
-  const fixeducfnxxx({Key? key}) : super(key: key);
+class Fixeducfncku extends StatelessWidget {
+  const Fixeducfncku({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class fixeducfnxxx extends StatelessWidget {
             padding: const EdgeInsets.only(left: 75.0, top: 40.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
-              child: Image.asset('image/PlantXXX.jpg'),
+              child: Image.asset('image/PlantCKU.jpg'),
             ),
           ),
           Padding(
@@ -59,12 +59,12 @@ class fixeducfnxxx extends StatelessWidget {
                     style: TextStyle(fontSize: 20),
                   ),
                   Text(
-                    'ID: ucfnxxx',
+                    'ID: ucfncku',
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 20),
                   ),
                   Text(
-                    'Owner: Duncan Wilson',
+                    'Owner: Vivian',
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 20),
                   ),
@@ -78,27 +78,27 @@ class fixeducfnxxx extends StatelessWidget {
   }
 }
 
-class PlantView extends StatefulWidget {
+class PlantViewcku extends StatefulWidget {
   @override
-  PlantViewState createState() {
-    return PlantViewState();
+  PlantViewckuState createState() {
+    return PlantViewckuState();
   }
 }
 
-class PlantViewState extends State<PlantView> {
-  String? Temperaturexxx;
-  String? Humidityxxx;
-  String? Moisturexxx;
+class PlantViewckuState extends State<PlantViewcku> {
+  String? Temperaturecku;
+  String? Humiditycku;
+  String? Moisturecku;
 
-  final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyixxx');
+  final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyicku');
 
   @override
   void initState() {
     super.initState();
 
-    Temperaturexxx = "wait a second";
-    Humidityxxx = "wait...";
-    Moisturexxx = "wait!!";
+    Temperaturecku = "wait a second";
+    Humiditycku = "wait...";
+    Moisturecku = "wait!!";
 
     startMQTT();
   }
@@ -117,17 +117,17 @@ class PlantViewState extends State<PlantView> {
         child: Column(
       children: [
         Text(
-          'Temperature: $Temperaturexxx',
+          'Temperature: $Temperaturecku',
           textAlign: TextAlign.left,
           style: TextStyle(fontSize: 20),
         ),
         Text(
-          'Humidity: $Humidityxxx',
+          'Humidity: $Humiditycku',
           textAlign: TextAlign.left,
           style: TextStyle(fontSize: 20),
         ),
         Text(
-          'Moisture: $Moisturexxx',
+          'Moisture: $Moisturecku',
           textAlign: TextAlign.left,
           style: TextStyle(fontSize: 20),
         ),
@@ -138,13 +138,13 @@ class PlantViewState extends State<PlantView> {
   updateList(String s, int i) {
     setState(() {
       if (i == 0) {
-        Temperaturexxx = s;
+        Temperaturecku = s;
       }
       if (i == 1) {
-        Humidityxxx = s;
+        Humiditycku = s;
       }
       if (i == 2) {
-        Moisturexxx = s;
+        Moisturecku = s;
       }
     });
   }
@@ -168,11 +168,11 @@ class PlantViewState extends State<PlantView> {
           'ERROR Mosquitto client connection failed - disconnecting, state is ${client.connectionStatus!.state}');
       client.disconnect();
     }
-    const topic1 = 'student/CASA0014/plant/ucfnxxx/temperature';
+    const topic1 = 'student/CASA0014/plant/ucfncku/temperature';
     client.subscribe(topic1, MqttQos.atMostOnce);
-    const topic2 = 'student/CASA0014/plant/ucfnxxx/humidity';
+    const topic2 = 'student/CASA0014/plant/ucfncku/humidity';
     client.subscribe(topic2, MqttQos.atMostOnce);
-    const topic3 = 'student/CASA0014/plant/ucfnxxx/moisture';
+    const topic3 = 'student/CASA0014/plant/ucfncku/moisture';
     client.subscribe(topic3, MqttQos.atMostOnce);
     client.updates!.listen((List<MqttReceivedMessage<MqttMessage?>>? c) {
       final receivedMessage = c![0].payload as MqttPublishMessage;

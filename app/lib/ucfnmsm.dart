@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
-class SecondRoute extends StatefulWidget {
-  const SecondRoute({Key? key}) : super(key: key);
+class Pagemsm extends StatefulWidget {
+  const Pagemsm({Key? key}) : super(key: key);
 
   @override
-  State<SecondRoute> createState() => _SecondRouteState();
+  State<Pagemsm> createState() => _PagemsmState();
 }
 
-class _SecondRouteState extends State<SecondRoute> {
+class _PagemsmState extends State<Pagemsm> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
