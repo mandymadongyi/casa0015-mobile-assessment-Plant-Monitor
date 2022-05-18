@@ -9,12 +9,14 @@ The Plant Monitor App has two functions, visualize real-time plant data and trig
 ![Simulator Screen Shot - iPhone 13 - 2022-05-18 at 14 09 40](https://user-images.githubusercontent.com/91919718/169104269-67b93921-8f04-4143-b1f8-9159f647eeaa.png)
 
 Figure 1. Homepage with notifications of watering
+
+
 ![Simulator Screen Shot - iPhone 13 - 2022-05-10 at 18 22 20](https://user-images.githubusercontent.com/91919718/169104322-a752023c-8be0-469d-a73d-6e5bc617b7fa.png)
 
-
 Figure 2. Detail Page while waiting for MQTT
-![Simulator Screen Shot - iPhone 13 - 2022-05-10 at 18 24 04](https://user-images.githubusercontent.com/91919718/169104330-406a165d-4e3b-4f3d-a398-dd715e7bdff7.png)
 
+
+![Simulator Screen Shot - iPhone 13 - 2022-05-10 at 18 24 04](https://user-images.githubusercontent.com/91919718/169104330-406a165d-4e3b-4f3d-a398-dd715e7bdff7.png)
 
 Figure 3. Detail Page with real time data
 
