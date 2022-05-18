@@ -6,7 +6,7 @@ At MSc Connected Environment, CASA, UCL, each student had built a plant monitor 
 
 The Plant Monitor App has two functions, visualize real-time plant data and trigger a notification of watering when soil moisture is below a pre-set value. By opening the app, MQTT connections are established subscribing to the moisture levels of each plant and triggering corresponding notifications of watering if the plant’s moisture is below 100. Users can also select which plant they want to browse on the homepage, and when a plant is chosen, users will be redirected to the detail page, where a picture of the chosen plant, as well as the plant’s name, id,  owner, real-time temperature, humidity, moisture will be listed to view.
 
-![img width="916" alt="1" Simulator Screen Shot - iPhone 13 - 2022-05-18 at 14 09 40](https://user-images.githubusercontent.com/91919718/169058650-3904ee42-8616-46cd-8c61-db3b801dc4b2.png)
+![img width="91" alt="1" Simulator Screen Shot - iPhone 13 - 2022-05-18 at 14 09 40](https://user-images.githubusercontent.com/91919718/169058650-3904ee42-8616-46cd-8c61-db3b801dc4b2.png)
 Figure 1. Homepage
 
 ![Simulator Screen Shot - iPhone 13 - 2022-05-10 at 18 22 20](https://user-images.githubusercontent.com/91919718/169058918-6bbf640d-a556-4e5a-82fa-f0e77c1f3e10.png)
