@@ -140,7 +140,7 @@ class PlantViewState extends State<PlantView> {
   }
 
   Future<void> startMQTT() async {
-    final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyi');
+    final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyimsm');
     client.port = 1884;
     client.setProtocolV311();
     client.keepAlivePeriod = 10;

@@ -1,23 +1,28 @@
-# REPLACE WITH YOUR APP NAME
+# Plant Monitor App
 
-This is the Final assessment template for CASA0014 - Please use this template and edit the relevant sections to personalise.
-This section has a short introduction to what the application is
+At MSc Connected Environment, CASA, UCL, each student had built a plant monitor to measure real-time temperature, humidity and soil moisture for their given plant and sent these data to MQTT continuously. This app is designed to provide a live view of the MQTT data on mobile devices so that users can view real-time plant information without using the MQTT Explorer on a laptop. 
 
 ## Use this README File 
 
-Use this section to show us what your Mobile App is about.   Include a Screenshot to the App, link to the various frameworks you've used. Include your presentation video here that shows off your Mobile App.   Emojis are also fun to include 📱 😄
-
-Look at some other Flutter Apps online and see how they use there README File.  Good examples are:
-
-- https://github.com/miickel/flutter_particle_clock
-- https://github.com/Tarikul711/flutter-food-delivery-app-ui    
-- https://github.com/mohak1283/Instagram-Clone
+The Plant Monitor App has two functions, visualize real-time plant data and trigger a notification of watering when soil moisture is below a pre-set value. By opening the app, MQTT connections are established subscribing to the moisture levels of each plant and triggering corresponding notifications of watering if the plant’s moisture is below 100. Users can also select which plant they want to browse on the homepage, and when a plant is chosen, users will be redirected to the detail page, where a picture of the chosen plant, as well as the plant’s name, id,  owner, real-time temperature, humidity, moisture will be listed to view.
 
 
-## Include A Section That Tells Developers How To Install The App
 
-Include a section that gives intructions on how to install the app or run it in Flutter.  What versions of the plugins are you assuming?  Maybe define a licence
+
+
+
+
+At the moment only three plants are listed for browsing, they are ucfnmsm, ucfnaka and ucfnxxx. This is due to a change of CE-Hub SSID so that the monitors which did not update their onboard Wi-Fi password can no longer publish MQTT messages. In the future, more plants could be added to this app by simply replicating the file /app/lib/ucfnmsm.dart and replacing the specific plant names/pictures/owners/id/MQTT topics. Future implementations also include developing a “society” on a separate page for users’ entertainment and discussion. 
+
+
+## How To Install The App
+
+1. Install flutter at https://docs.flutter.dev/get-started/install
+
+2. Clone this project and open the folder with any IDE (ie. Android Studio, VSCode, IntelliJ, etc)
+3. You will need to install dependencies mqtt_client by run flutter pub get from the command line running from your project directory.
 
 ##  Contact Details
 
-Having Contact Details is also good as it shows people how to get in contact with you if they'd like to contribute to the app. 
+    Drop an email to me if you are also interested in this app! 
+    dongyi.ma.21@ucl.ac.uk

@@ -26,7 +26,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
                 fixeducfnaka(),
                 Padding(
                   padding: const EdgeInsets.only(left: 50.0),
-                  child: PlantView(),
+                  child: PlantViewaka(),
                 )
               ],
             )));
@@ -78,14 +78,14 @@ class fixeducfnaka extends StatelessWidget {
   }
 }
 
-class PlantView extends StatefulWidget {
+class PlantViewaka extends StatefulWidget {
   @override
-  PlantViewState createState() {
-    return PlantViewState();
+  PlantViewakaState createState() {
+    return PlantViewakaState();
   }
 }
 
-class PlantViewState extends State<PlantView> {
+class PlantViewakaState extends State<PlantViewaka> {
   String? Temperatureaka;
   String? Humidityaka;
   String? Moistureaka;
@@ -140,7 +140,7 @@ class PlantViewState extends State<PlantView> {
   }
 
   Future<void> startMQTT() async {
-    final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyi');
+    final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyiaka');
     client.port = 1884;
     client.setProtocolV311();
     client.keepAlivePeriod = 10;
