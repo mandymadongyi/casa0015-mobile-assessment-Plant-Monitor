@@ -23,7 +23,7 @@ class _SecondRouteState extends State<SecondRoute> {
             ),
             body: Column(
               children: [
-                fixeducfnmsm(),
+                Fixeducfnmsm(),
                 Padding(
                   padding: const EdgeInsets.only(left: 50.0),
                   child: PlantView(),
@@ -33,8 +33,8 @@ class _SecondRouteState extends State<SecondRoute> {
   }
 }
 
-class fixeducfnmsm extends StatelessWidget {
-  const fixeducfnmsm({Key? key}) : super(key: key);
+class Fixeducfnmsm extends StatelessWidget {
+  const Fixeducfnmsm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +42,14 @@ class fixeducfnmsm extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 50.0, top: 40.0),
+            padding: const EdgeInsets.only(left: 75.0, top: 40.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
               child: Image.asset('image/PlantMSM.jpg'),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 50.0, top: 50.0),
+            padding: const EdgeInsets.only(left: 50.0, top: 100.0),
             child: Container(
               child: Column(
                 children: [
@@ -90,6 +90,8 @@ class PlantViewState extends State<PlantView> {
   String? Humiditymsm;
   String? Moisturemsm;
 
+  final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyimsm');
+
   @override
   void initState() {
     super.initState();
@@ -99,6 +101,14 @@ class PlantViewState extends State<PlantView> {
     Moisturemsm = "wait!!";
 
     startMQTT();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    client.disconnect();
+    print('client disconnected');
+    super.dispose();
   }
 
   @override
@@ -140,7 +150,6 @@ class PlantViewState extends State<PlantView> {
   }
 
   Future<void> startMQTT() async {
-    final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyimsm');
     client.port = 1884;
     client.setProtocolV311();
     client.keepAlivePeriod = 10;

@@ -42,14 +42,14 @@ class fixeducfnaka extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 50.0, top: 40.0),
+            padding: const EdgeInsets.only(left: 75.0, top: 40.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
               child: Image.asset('image/PlantAKA.jpg'),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 50.0, top: 50.0),
+            padding: const EdgeInsets.only(left: 50.0, top: 100.0),
             child: Container(
               child: Column(
                 children: [
@@ -90,6 +90,8 @@ class PlantViewakaState extends State<PlantViewaka> {
   String? Humidityaka;
   String? Moistureaka;
 
+  final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyiaka');
+
   @override
   void initState() {
     super.initState();
@@ -99,6 +101,14 @@ class PlantViewakaState extends State<PlantViewaka> {
     Moistureaka = "wait!!";
 
     startMQTT();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    client.disconnect();
+    print('client disconnected');
+    super.dispose();
   }
 
   @override
@@ -140,7 +150,6 @@ class PlantViewakaState extends State<PlantViewaka> {
   }
 
   Future<void> startMQTT() async {
-    final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyiaka');
     client.port = 1884;
     client.setProtocolV311();
     client.keepAlivePeriod = 10;

@@ -44,15 +44,15 @@ class _FirstRouteState extends State<FirstRoute> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 30.0),
-                  child: namelist(),
+                  child: Namelist(),
                 ),
-                notification(),
+                Notification(),
               ],
             )));
   }
 }
 
-class namelist extends StatelessWidget {
+class Namelist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,6 +61,8 @@ class namelist extends StatelessWidget {
           ElevatedButton(
             child: Text('ucfnmsm'),
             onPressed: () {
+              _NotificationState.client.disconnect();
+              print('client disconnected');
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return SecondRoute();
               }));
@@ -69,6 +71,8 @@ class namelist extends StatelessWidget {
           ElevatedButton(
             child: Text('ucfnaka'),
             onPressed: () {
+              _NotificationState.client.disconnect();
+              print('client disconnected');
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ThirdRoute();
               }));
@@ -77,6 +81,8 @@ class namelist extends StatelessWidget {
           ElevatedButton(
             child: Text('ucfnxxx'),
             onPressed: () {
+              _NotificationState.client.disconnect();
+              print('client disconnected');
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return FourthRoute();
               }));
@@ -88,14 +94,14 @@ class namelist extends StatelessWidget {
   }
 }
 
-class notification extends StatefulWidget {
-  const notification({Key? key}) : super(key: key);
+class Notification extends StatefulWidget {
+  const Notification({Key? key}) : super(key: key);
 
   @override
-  State<notification> createState() => _notificationState();
+  State<Notification> createState() => _NotificationState();
 }
 
-class _notificationState extends State<notification> {
+class _NotificationState extends State<Notification> {
   String? MSM;
   String? AKA;
   String? XXX;
@@ -103,11 +109,22 @@ class _notificationState extends State<notification> {
   var aka = 20;
   var xxx = 100;
 
+  static final client =
+      MqttServerClient('mqtt.cetools.org', 'mandymadongyihome');
+
   @override
   void initState() {
     super.initState();
 
     startMQTT();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    client.disconnect();
+    print('client disconnected');
+    super.dispose();
   }
 
   updateList(String s, int i) {
@@ -122,10 +139,12 @@ class _notificationState extends State<notification> {
         XXX = s;
       }
     });
+    var msm = double.parse('MSM');
+    var aka = double.parse('AKA');
+    var xxx = double.parse('XXX');
   }
 
   Future<void> startMQTT() async {
-    final client = MqttServerClient('mqtt.cetools.org', 'mandymadongyihome');
     client.port = 1884;
     client.setProtocolV311();
     client.keepAlivePeriod = 10;
