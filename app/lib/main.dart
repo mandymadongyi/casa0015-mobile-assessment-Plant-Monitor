@@ -102,12 +102,12 @@ class Notification extends StatefulWidget {
 }
 
 class _NotificationState extends State<Notification> {
-  String? MSM;
-  String? AKA;
-  String? XXX;
-  var msm = 8;
-  var aka = 20;
-  var xxx = 100;
+  String MSM = '0';
+  String AKA = '0';
+  String XXX = '0';
+  int msm = 101;
+  int aka = 101;
+  int xxx = 101;
 
   static final client =
       MqttServerClient('mqtt.cetools.org', 'mandymadongyihome');
@@ -138,10 +138,20 @@ class _NotificationState extends State<Notification> {
       if (i == 2) {
         XXX = s;
       }
+
+      msm = int.parse(MSM);
+      aka = int.parse(AKA);
+      xxx = int.parse(XXX);
+
+      print('msm=');
+      print(msm);
+
+      print('aka=');
+      print(aka);
+
+      print('xxx=');
+      print(xxx);
     });
-    var msm = double.parse('MSM');
-    var aka = double.parse('AKA');
-    var xxx = double.parse('XXX');
   }
 
   Future<void> startMQTT() async {
