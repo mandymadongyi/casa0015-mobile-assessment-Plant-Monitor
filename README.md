@@ -21,7 +21,9 @@ Figure 2. Detail Page while waiting for MQTT
 Figure 3. Detail Page with real time data
 
 
+## Future work
 
+Challenges: Receiving and distributing data when the app has huge MQTT connections. Also, it is important to connect and dispose of MQTT when navigating to other pages to ensure MQTT works fine!!! 
 
 
 At the moment only three plants are listed for browsing, they are ucfnmsm, ucfnaka and ucfnxxx. This is due to a change of CE-Hub SSID so that the monitors which did not update their onboard Wi-Fi password can no longer publish MQTT messages. In the future, more plants could be added to this app by simply replicating the file /app/lib/ucfnmsm.dart and replacing the specific plant names/pictures/owners/id/MQTT topics. Future implementations also include developing a “society” on a separate page for users’ entertainment and discussion. 
